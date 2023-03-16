@@ -1,5 +1,7 @@
 const FormScreen = require("../screens/acess.forms_screens")
 
+let initial = 'Form components'
+
 describe('Acessar forms', () => {
     it('Deve acessa o Forms', async () => {
         await FormScreen.gotToForm()
@@ -19,6 +21,9 @@ describe('Acessar forms', () => {
         await button.click()
         await $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollToEnd(1,5)');
         await $('~button-Active').click()
+
+        expect (await $('//android.widget.TextView').getText(initial))
+
     })
 
 })
